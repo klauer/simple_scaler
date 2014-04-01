@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/klauer/fpga/simple_scaler/scaler.ncd
+OUTFILE=/home/klauer/fpga/simple_scaler/scaler.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=/home/klauer/fpga/simple_scaler
+LICENSE=WebPack
+USER_INFO=210658839_0_0_939

@@ -1,0 +1,49 @@
+# Crystal Clock - use 32MHz onboard oscillator
+NET clk TNM_NET = clk0_ref_grp;
+TIMESPEC ts01 = PERIOD : clk0_ref_grp : 31.25ns : PRIORITY 1;
+NET clk LOC = "P94" | IOSTANDARD=LVTTL;
+
+#NET "clk" TNM_NET = "TS_Clk_100m";
+#TIMEGRP "clk_time"= "TS_Clk_100m";
+#TIMESPEC "TS_clk_time" = PERIOD "clk_time" 10 ns HIGH 50%;
+
+
+# NOTE: led numbers reversed to be l-to-r (TODO)
+#NET LEDS(7) LOC = "P123" | IOSTANDARD=LVTTL;
+#NET LEDS(6) LOC = "P124" | IOSTANDARD=LVTTL;
+#NET LEDS(5) LOC = "P126" | IOSTANDARD=LVTTL;
+#NET LEDS(4) LOC = "P127" | IOSTANDARD=LVTTL;
+#NET LEDS(3) LOC = "P131" | IOSTANDARD=LVTTL;
+#NET LEDS(2) LOC = "P132" | IOSTANDARD=LVTTL;
+#NET LEDS(1) LOC = "P133" | IOSTANDARD=LVTTL;
+#NET LEDS(0) LOC = "P134" | IOSTANDARD=LVTTL;
+
+
+NET input_a(0)           LOC="P48"  | IOSTANDARD=LVTTL;  # A(0)
+NET input_a(1)           LOC="P51"  | IOSTANDARD=LVTTL;  # A(1)
+NET input_a(2)           LOC="P56"  | IOSTANDARD=LVTTL;  # A(2)
+NET input_a(3)           LOC="P58"  | IOSTANDARD=LVTTL;  # A(3)
+NET input_a(4)           LOC="P61"  | IOSTANDARD=LVTTL;  # A(4)
+NET input_a(5)           LOC="P66"  | IOSTANDARD=LVTTL;  # A(5)
+NET input_a(6)           LOC="P67"  | IOSTANDARD=LVTTL;  # A(6)
+NET input_a(7)           LOC="P75"  | IOSTANDARD=LVTTL;  # A(7)
+NET input_a(8)           LOC="P79"  | IOSTANDARD=LVTTL;  # A(8)
+NET input_a(9)           LOC="P81"  | IOSTANDARD=LVTTL;  # A(9)
+NET input_a(10)          LOC="P83"  | IOSTANDARD=LVTTL;  # A(10)
+NET input_a(11)          LOC="P85"  | IOSTANDARD=LVTTL;  # A(11)
+NET input_a(12)          LOC="P88"  | IOSTANDARD=LVTTL;  # A(12)
+NET input_a(13)          LOC="P93"  | IOSTANDARD=LVTTL;  # A(13)
+NET input_a(14)          LOC="P98"  | IOSTANDARD=LVTTL;  # A(14)
+NET input_a(15)          LOC="P100" | IOSTANDARD=LVTTL;  # A(15)
+NET "input_a<10>" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "input_a<14>" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "input_a<15>" CLOCK_DEDICATED_ROUTE = FALSE;
+
+NET baud_out          LOC="P114" | IOSTANDARD=LVTTL; # c0
+NET clk_out           LOC="P115" | IOSTANDARD=LVTTL; # c1
+# NET clear_out         LOC="P116" | IOSTANDARD=LVTTL; # c2
+# NET test_signal       LOC="P117" | IOSTANDARD=LVTTL; # c3
+
+## RS232
+# NET "rx"  LOC = "P101" | IOSTANDARD = LVCMOS25 ;
+NET "tx"  LOC = "P105" | IOSTANDARD = LVCMOS25 | DRIVE = 8 | SLEW = FAST | PULLUP;
